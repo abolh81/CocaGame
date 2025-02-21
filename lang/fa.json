@@ -1,0 +1,14 @@
+{
+  "title": "بازی مرتب‌سازی",
+  "selectLabel": "تعداد ظروف:",
+  "start": "شروع بازی",
+  "check": "بررسی",
+  "win": "تبریک! شما برنده شدید!",
+  "correctCount": "تعداد ظروف در جای درست:",
+  "of": "از",
+  "seconds": "ثانیه",
+  "restart": "شروع مجدد",
+  "time": "زمان: {seconds} ثانیه",
+  "winMessage": "تبریک! شما برنده شدید!",
+  "correctCountMessage": "تعداد ظروف در جای درست: {correct} از {total}"
+}

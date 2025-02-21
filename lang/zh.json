@@ -1,0 +1,14 @@
+{
+    "title": "排序游戏",
+    "selectLabel": "容器数量:",
+    "start": "开始游戏",
+    "check": "检查",
+    "win": "恭喜! 你赢了!",
+    "correctCount": "正确放置的容器:",
+    "of": "共",
+    "seconds": "秒",
+    "restart": "重新开始",
+    "time": "时间: {seconds} 秒",
+    "winMessage": "恭喜! 你赢了!",
+    "correctCountMessage": "正确位置: {correct} 共 {total}"
+}

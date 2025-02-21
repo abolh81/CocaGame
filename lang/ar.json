@@ -1,0 +1,14 @@
+{
+  "title": "لعبة الفرز",
+  "selectLabel": "عدد الحاويات:",
+  "start": "ابدأ اللعبة",
+  "check": "تحقق",
+  "win": "تهانينا! لقد فزت!",
+  "correctCount": "عدد الحاويات الموضوعة بشكل صحيح:",
+  "of": "من",
+  "seconds": "ثانية",
+  "restart": "إعادة التشغيل",
+  "time": "الوقت: {seconds} ثانية",
+  "winMessage": "تهانينا! لقد فزت!",
+  "correctCountMessage": "المواضع الصحيحة: {correct} من {total}"
+}

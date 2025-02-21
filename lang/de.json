@@ -1,0 +1,14 @@
+{
+    "title": "Sortierspiel",
+    "selectLabel": "Anzahl der Behälter:",
+    "start": "Spiel Starten",
+    "check": "Überprüfen",
+    "win": "Glückwunsch! Du hast gewonnen!",
+    "correctCount": "Richtig platzierte Behälter:",
+    "of": "von",
+    "seconds": "Sekunden",
+    "restart": "Neustarten",
+    "time": "Zeit: {seconds} Sekunden",
+    "winMessage": "Glückwunsch! Du hast gewonnen!",
+    "correctCountMessage": "Richtige Positionen: {correct} von {total}"
+}

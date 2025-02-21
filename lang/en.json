@@ -1,0 +1,14 @@
+{
+  "title": "Sorting Game",
+  "selectLabel": "Number of Containers:",
+  "start": "Start Game",
+  "check": "Check",
+  "win": "Congratulations! You won!",
+  "correctCount": "Correctly placed containers:",
+  "of": "of",
+  "seconds": "seconds",
+  "restart": "Restart",
+  "time": "Time: {seconds} seconds",
+  "winMessage": "Congratulations! You won!",
+  "correctCountMessage": "Correct positions: {correct} out of {total}"
+}

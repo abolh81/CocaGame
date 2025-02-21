@@ -1,0 +1,14 @@
+{
+    "title": "Jogo de Classificação",
+    "selectLabel": "Número de Contêineres:",
+    "start": "Iniciar Jogo",
+    "check": "Verificar",
+    "win": "Parabéns! Você venceu!",
+    "correctCount": "Contêineres corretamente posicionados:",
+    "of": "de",
+    "seconds": "segundos",
+    "restart": "Reiniciar",
+    "time": "Tempo: {seconds} segundos",
+    "winMessage": "Parabéns! Você venceu!",
+    "correctCountMessage": "Posições corretas: {correct} de {total}"
+}

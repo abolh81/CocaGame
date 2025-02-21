@@ -1,0 +1,14 @@
+{
+    "title": "並べ替えゲーム",
+    "selectLabel": "コンテナの数:",
+    "start": "ゲーム開始",
+    "check": "チェック",
+    "win": "おめでとうございます！あなたの勝ちです！",
+    "correctCount": "正しく配置されたコンテナ:",
+    "of": "の",
+    "seconds": "秒",
+    "restart": "リスタート",
+    "time": "時間: {seconds} 秒",
+    "winMessage": "おめでとうございます！あなたの勝ちです！",
+    "correctCountMessage": "正しい位置: {correct} / {total}"
+}

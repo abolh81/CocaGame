@@ -1,0 +1,14 @@
+{
+  "title": "Jeu de Tri",
+  "selectLabel": "Nombre de conteneurs:",
+  "start": "Démarrer le Jeu",
+  "check": "Vérifier",
+  "win": "Félicitations! Vous avez gagné!",
+  "correctCount": "Conteneurs correctement placés:",
+  "of": "sur",
+  "seconds": "secondes",
+  "restart": "Recommencer",
+  "time": "Temps: {seconds} secondes",
+  "winMessage": "Félicitations! Vous avez gagné!",
+  "correctCountMessage": "Positions correctes: {correct} sur {total}"
+}
