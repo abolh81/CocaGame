@@ -17,12 +17,12 @@ class CocaGame {
     async loadLang(lang) {
         const defaultLang = 'en'; // زبان پیش‌فرض
         try {
-            const response = await fetch(`./lang/${lang}.json`);
+            const response = await fetch(`../lang/${lang}.json`);
             this.lang = await response.json();
         } catch (error) {
             console.warn(`Language file '${lang}.json' not found. Falling back to English.`);
             try {
-                const response = await fetch(`./lang/${defaultLang}.json`);
+                const response = await fetch(`../lang/${defaultLang}.json`);
                 this.lang = await response.json();
             } catch (error) {
                 console.error("Default English language file not found.");
