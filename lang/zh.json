@@ -1,4 +1,5 @@
 {
+    "dir" : "ltr",
     "title": "排序游戏",
     "selectLabel": "容器数量:",
     "start": "开始游戏",

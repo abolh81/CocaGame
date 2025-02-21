@@ -1,4 +1,5 @@
 {
+  "dir" : "ltr",
   "title": "Sorting Game",
   "selectLabel": "Number of Containers:",
   "start": "Start Game",

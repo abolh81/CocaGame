@@ -1,4 +1,5 @@
 {
+    "dir" : "ltr",
     "title": "Jogo de Classificação",
     "selectLabel": "Número de Contêineres:",
     "start": "Iniciar Jogo",

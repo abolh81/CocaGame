@@ -52,6 +52,10 @@ class CocaGame {
     init() {
         this.createUI();
         this.setupEventListeners();
+        // تنظیم direction بر اساس زبان
+        if (this.lang.dir) {
+            this.container.setAttribute("dir", this.lang.dir);
+        }
     }
 
     createUI() {

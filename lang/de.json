@@ -1,4 +1,5 @@
 {
+    "dir" : "ltr",
     "title": "Sortierspiel",
     "selectLabel": "Anzahl der Behälter:",
     "start": "Spiel Starten",
