@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی مرتب‌سازی ظروف</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- اضافه کردن فونت وزیر از Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <h1>بازی مرتب‌سازی ظروف</h1>
+        <label for="container-count">تعداد ظروف:</label>
+        <select id="container-count">
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        <button id="start-btn">شروع بازی</button>
+        <div id="containers"></div>
+        <button id="check-btn">چک کن</button>
+        <div id="result"></div>
+        <div id="timer">زمان: 0 ثانیه</div>
+        <button id="restart-btn" style="display:none;">شروع مجدد</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
