@@ -10,6 +10,8 @@
   "seconds": "ثانیه",
   "restart": "شروع مجدد",
   "time": "زمان: {seconds} ثانیه",
+  "attemptsLeft": "تعداد دفعات باقیمانده",
+
   "winMessage": "تبریک! شما برنده شدید!",
   "correctCountMessage": "تعداد ظروف در جای درست: {correct} از {total}"
 }

@@ -200,7 +200,7 @@ class CocaGame {
                 const elapsedTime = Math.floor((Date.now() - this.startTime) / 1000);
                 const remainingTime = this.timeLimit - elapsedTime;
 
-                this.container.querySelector('#timer').textContent = `${this.lang.time}: ${remainingTime} ${this.lang.seconds}`;
+                this.container.querySelector('#timer').textContent = (this.lang.time).replace("{seconds}", remainingTime);;
                 
                 if (remainingTime <= 0) {
                     this.stopTimer();
