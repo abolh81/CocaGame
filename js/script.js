@@ -1,31 +1,51 @@
 class CocaGame {
     constructor(container, config) {
         this.container = document.getElementById(container);
+        
+        if (!this.container) {
+            console.error(`Element with id '${container}' not found.`);
+            return;
+        }
+
         this.config = config;
-        this.lang = {};  // پیش‌فرض
-        this.loadLang(config.lang); // فراخوانی تابع برای بارگذاری زبان
         this.containers = [];
         this.correctOrder = [];
         this.startTime = null;
         this.timerInterval = null;
-        this.attemptsLeft = config.challengeAttempts || 0; // برای حالت چالشی
-        this.timeLimit = config.timeLimit || 0; // برای حالت زمانی
         this.gameMode = config.gameMode || "free"; // تعیین حالت بازی
-        this.init();
+        this.attemptsLeft = config.challengeAttempts || 5; // برای حالت چالشی
+        this.timeLimit = config.timeLimit || 30; // برای حالت زمانی
+        this.loadLang(config.lang).then(langData => {
+            this.lang = langData;
+            this.init();
+        });
     }
 
     async loadLang(lang) {
-        const defaultLang = 'en'; // زبان پیش‌فرض
+        const defaultLang = 'en';
+        lang = lang || defaultLang;
+    
+        console.log(`Loading language file: ${lang}.json`); // بررسی مقدار lang
+    
         try {
-            const response = await fetch(`../lang/${lang}.json`);
-            this.lang = await response.json();
+            const response = await fetch(`./lang/${lang}.json`);
+            if (!response.ok) throw new Error(`Language file '${lang}.json' not found.`);
+            
+            const data = await response.json();
+            console.log(`Language loaded successfully:`, data); // بررسی محتوای JSON
+            return data;
         } catch (error) {
-            console.warn(`Language file '${lang}.json' not found. Falling back to English.`);
+            console.warn(error.message);
+    
             try {
-                const response = await fetch(`../lang/${defaultLang}.json`);
-                this.lang = await response.json();
-            } catch (error) {
-                console.error("Default English language file not found.");
+                console.log(`Falling back to default language: ${defaultLang}.json`);
+                const fallbackResponse = await fetch(`./lang/${defaultLang}.json`);
+                if (!fallbackResponse.ok) throw new Error(`Default language file not found.`);
+                
+                return await fallbackResponse.json();
+            } catch (fallbackError) {
+                console.error(fallbackError.message);
+                return {};
             }
         }
     }
@@ -33,6 +53,10 @@ class CocaGame {
     init() {
         this.createUI();
         this.setupEventListeners();
+        // تنظیم direction بر اساس زبان
+        if (this.lang.dir) {
+            this.container.setAttribute("dir", this.lang.dir);
+        }
     }
 
     createUI() {
