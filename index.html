@@ -10,29 +10,18 @@
 </head>
 <body>
     <div id="game-container">
-        <h1>بازی مرتب‌سازی ظروف</h1>
-        <label for="container-count">تعداد ظروف:</label>
-        <select id="container-count">
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-        </select>
-        <button id="start-btn">شروع بازی</button>
-        <div id="containers"></div>
-        <button id="check-btn">چک کن</button>
-        <div id="result"></div>
-        <div id="timer">زمان: 0 ثانیه</div>
-        <div class="container-count">
-            <button id="restart-btn" style="display:none;">شروع مجدد</button>
-        </div>
+        
     </div>
+    
     <script src="js/script.js"></script>
     <script>
         
 // نمونه‌ی اجرا
-const game = CocaGame.make('game-container');
+const game = CocaGame.make('game-container',{
+    lang:'fa',
+    
+    gameMode: "challenging",
+});
 
     </script>
 </body>

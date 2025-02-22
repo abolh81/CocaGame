@@ -9,7 +9,9 @@
   "of": "of",
   "seconds": "seconds",
   "restart": "Restart",
-  "time": "Time: {seconds} seconds",
+  "time": "Time",
+  "gameOverMessage": "Game Over",
+  "attemptsLeft": "Attempts Left",
   "winMessage": "Congratulations! You won!",
   "correctCountMessage": "Correct positions: {correct} out of {total}"
 }
