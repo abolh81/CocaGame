@@ -22,7 +22,19 @@ class CocaGame {
         this.colors = config.colors && config.colors.length > 0 
             ? config.colors 
             : ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown', 'golden', 'skyblue'];
-    
+        
+         // تنظیمات صوتی پیش‌فرض
+         const defaultSounds = {
+            start: 'assets/sounds/start.mp3',
+            swap: 'assets/sounds/swap.mp3',
+            win: 'assets/sounds/win.mp3',
+            gameover: 'assets/sounds/gameover.mp3',
+            click: 'assets/sounds/click.mp3'
+        };
+
+        // ادغام تنظیمات صوتی کاربر با تنظیمات پیش‌فرض
+        this.sounds = config.sounds ? { ...defaultSounds, ...config.sounds } : defaultSounds;
+        
         this.loadLang(config.lang).then(langData => {
             this.lang = langData;
             this.init();
@@ -136,8 +148,9 @@ class CocaGame {
     
         this.container.querySelector('#result').textContent = '';
         this.container.querySelector('#restart-btn').style.display = 'none';
+        this.container.querySelector('#start-btn').style.display = 'none';
         this.startTimer();
-        this.playSound("assets/sounds/start.mp3"); // صدای شروع بازی
+        this.playSound(this.sounds.start); // پخش صدای شروع بازی
     }
 
     resetAttempts() {
@@ -199,7 +212,7 @@ class CocaGame {
         [container1.style.backgroundColor, container2.style.backgroundColor] = [container2.style.backgroundColor, container1.style.backgroundColor];
         [this.containers[fromIndex], this.containers[toIndex]] = [this.containers[toIndex], this.containers[fromIndex]];
 
-        this.playSound("assets/sounds/swap.mp3"); // صدای جابجایی ظروف
+        this.playSound(this.sounds.swap); // پخش صدای جابجایی
 
         if (this.gameMode === "free" || this.gameMode === "timed") {
             this.updateCorrectCount();
@@ -260,7 +273,7 @@ class CocaGame {
         this.container.querySelector('#result').textContent = this.lang.winMessage;
         this.container.querySelector('#restart-btn').style.display = 'block';
         this.disableDragging(); // غیر فعال کردن کشیدن ظروف بعد از برد
-        this.playSound("assets/sounds/win.mp3"); // صدای برد
+        this.playSound(this.sounds.win); // پخش صدای برد
 
     }
     
@@ -269,7 +282,8 @@ class CocaGame {
         this.container.querySelector('#result').textContent = this.lang.gameOverMessage;
         this.container.querySelector('#restart-btn').style.display = 'block';
         this.disableDragging(); // غیر فعال کردن کشیدن ظروف بعد از باخت
-        this.playSound("assets/sounds/gameover.mp3"); // صدای باخت
+        this.playSound(this.sounds.gameover); // پخش صدای باخت
+
     }    
 
     startTimer() {
