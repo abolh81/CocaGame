@@ -34,14 +34,20 @@ class CocaGame {
         const defaultLang = 'en';
         lang = lang || defaultLang;
     
-        console.log(`Loading language file: ${lang}.json`); // بررسی مقدار lang
+        console.log(`Loading language file: ${lang}.json`);
     
         try {
             const response = await fetch(`./lang/${lang}.json`);
             if (!response.ok) throw new Error(`Language file '${lang}.json' not found.`);
             
-            const data = await response.json();
-            console.log(`Language loaded successfully:`, data); // بررسی محتوای JSON
+            let data = await response.json();
+    
+            // بررسی وجود ترجمه‌های سفارشی در `config.i18n`
+            if (this.config.i18n && this.config.i18n[lang]) {
+                data = { ...data, ...this.config.i18n[lang] }; // ادغام ترجمه‌های سفارشی با فایل زبان اصلی
+                console.log("Custom translations applied:", this.config.i18n[lang]);
+            }
+    
             return data;
         } catch (error) {
             console.warn(error.message);
@@ -58,6 +64,7 @@ class CocaGame {
             }
         }
     }
+    
 
     init() {
         this.createUI();
