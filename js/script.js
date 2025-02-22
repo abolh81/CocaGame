@@ -6,22 +6,29 @@ class CocaGame {
             console.error(`Element with id '${container}' not found.`);
             return;
         }
-
+    
         this.config = config;
         this.containers = [];
         this.correctOrder = [];
         this.startTime = null;
         this.timerInterval = null;
-        this.gameMode = config.gameMode || "free"; // تعیین حالت بازی
-        this.attemptsLeft = config.challengeAttempts || 5; // برای حالت چالشی
-        this.timeLimit = config.timeLimit || 30; // برای حالت زمانی
-        this.allowUserContainerSelection = config.allowUserContainerSelection || false; // حالت انتخاب تعداد ظروف توسط کاربر
-        this.containerCount = config.containerCount || 4; // تعداد ظروف پیش‌فرض
+        this.gameMode = config.gameMode || "free"; 
+        this.attemptsLeft = config.challengeAttempts || 5; 
+        this.timeLimit = config.timeLimit || 30; 
+        this.allowUserContainerSelection = config.allowUserContainerSelection || false;
+        this.containerCount = config.containerCount || 4;
+    
+        // دریافت رنگ‌های سفارشی از کاربر یا مقداردهی پیش‌فرض
+        this.colors = config.colors && config.colors.length > 0 
+            ? config.colors 
+            : ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown', 'golden', 'skyblue'];
+    
         this.loadLang(config.lang).then(langData => {
             this.lang = langData;
             this.init();
         });
     }
+    
 
     async loadLang(lang) {
         const defaultLang = 'en';
@@ -93,11 +100,14 @@ class CocaGame {
     }
 
     initializeGame() {
+        if (this.gameMode === "challenging") {
+            this.resetAttempts(); // بازنشانی تعداد تلاش‌های باقی‌مانده
+        }
         const count = this.allowUserContainerSelection ? parseInt(this.container.querySelector('#container-count').value) : this.containerCount;
         this.containers = this.generateRandomColors(count);
         this.correctOrder = [...this.containers].sort();
         this.shuffle(this.containers);
-
+    
         const containersDiv = this.container.querySelector('#containers');
         containersDiv.innerHTML = '';
         this.containers.forEach((color, index) => {
@@ -111,16 +121,28 @@ class CocaGame {
             container.addEventListener('drop', (e) => this.drop(e));
             containersDiv.appendChild(container);
         });
-
+    
         this.container.querySelector('#result').textContent = '';
         this.container.querySelector('#restart-btn').style.display = 'none';
         this.startTimer();
     }
 
-    generateRandomColors(count) {
-        const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown','golden','skyblue'];
-        return colors.slice(0, count);
+    resetAttempts() {
+        this.attemptsLeft = this.config.challengeAttempts || 5; // بازنشانی تعداد دفعات مجاز
+        if (this.gameMode === "challenging") {
+            this.container.querySelector('#attempts').textContent = `${this.lang.attemptsLeft}: ${this.attemptsLeft}`;
+        }
     }
+    
+
+    generateRandomColors(count) {
+        if (this.colors.length < count) {
+            console.warn("Not enough colors provided, using available colors.");
+            return this.colors.slice(0, this.colors.length); // اگر رنگ‌های ورودی کمتر از مقدار موردنیاز باشند
+        }
+        return this.colors.slice(0, count);
+    }
+    
 
     shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
