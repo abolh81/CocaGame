@@ -64,6 +64,11 @@ class CocaGame {
             }
         }
     }
+
+    playSound(soundFile) {
+        const audio = new Audio(soundFile);
+        audio.play();
+    }
     
 
     init() {
@@ -132,6 +137,7 @@ class CocaGame {
         this.container.querySelector('#result').textContent = '';
         this.container.querySelector('#restart-btn').style.display = 'none';
         this.startTimer();
+        this.playSound("assets/sounds/start.mp3"); // صدای شروع بازی
     }
 
     resetAttempts() {
@@ -193,6 +199,8 @@ class CocaGame {
         [container1.style.backgroundColor, container2.style.backgroundColor] = [container2.style.backgroundColor, container1.style.backgroundColor];
         [this.containers[fromIndex], this.containers[toIndex]] = [this.containers[toIndex], this.containers[fromIndex]];
 
+        this.playSound("assets/sounds/swap.mp3"); // صدای جابجایی ظروف
+
         if (this.gameMode === "free" || this.gameMode === "timed") {
             this.updateCorrectCount();
         }
@@ -252,6 +260,8 @@ class CocaGame {
         this.container.querySelector('#result').textContent = this.lang.winMessage;
         this.container.querySelector('#restart-btn').style.display = 'block';
         this.disableDragging(); // غیر فعال کردن کشیدن ظروف بعد از برد
+        this.playSound("assets/sounds/win.mp3"); // صدای برد
+
     }
     
     handleGameOver() {
@@ -259,6 +269,7 @@ class CocaGame {
         this.container.querySelector('#result').textContent = this.lang.gameOverMessage;
         this.container.querySelector('#restart-btn').style.display = 'block';
         this.disableDragging(); // غیر فعال کردن کشیدن ظروف بعد از باخت
+        this.playSound("assets/sounds/gameover.mp3"); // صدای باخت
     }    
 
     startTimer() {

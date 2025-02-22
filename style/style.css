@@ -61,6 +61,7 @@ body {
 }
 
 #check-btn, #restart-btn, #start-btn {
+    font-family: 'Vazirmatn';
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;

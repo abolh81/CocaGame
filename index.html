@@ -17,11 +17,21 @@
     <script>
         
 // نمونه‌ی اجرا
-const game = CocaGame.make('game-container',{
-    lang:'fa',
-    
-    gameMode: "timed",
+CocaGame.make("game-container", {
+    gameMode: "challenging",
+    challengeAttempts: 3,
+    containerCount: 6,
+    lang: "ru", // زبان انتخاب‌شده
+    i18n: {
+        ru: {
+            "Type something": "Введите что-либо тут...",
+            "start": "Начать",  // جایگزینی ترجمه پیش‌فرض
+            "restart": "Перезапуск",
+            "winMessage": "Поздравляем, вы победили!",
+        }
+    }
 });
+
 
 
     </script>
